@@ -1,6 +1,6 @@
 <section id="more">
 
-<?php include('uni.php') ?>
+<?php include 'uni.php'?>
 
 <a href="#top"><i class="fa fa-angle-double-up fa-4x" id="scroll" aria-hidden="true"></i></a>
 
@@ -42,7 +42,7 @@
                         <li>AirBNB</li>
                         <li>Amarillo Límon</li>
                         <li>Bruce Price</li>
-                        <li>Dikeou Collection</li>
+                            <li>Dikeou Collection</li>
                         <li>MCA Denver</li>
                         <li>Robischon Gallery</li>
                         <li>Rocky Mountain College <br>of Art + Design</li>
@@ -91,78 +91,77 @@
         <div class="row text-center portfolio-div">
 
           <?php
-          //foreach(array_reverse($photoPath, true) as $each => $value) {
-          foreach ($photoPath as $each => $value) {
-            // echo $First[$each]. " " . $Second2[$each];
-            echo "<div class='col-md-4 cards animation-element'>";
-            echo "<div class='portfolio-item' data-toggle='modal' data-target='#" . $photoPath[$each] . "'>";
-            echo "<img class='img-responsive img-main' src='assets/img/portfolio/" . $photoPath[$each] . ".jpg'/>";
-            echo "<h4 class='titles'><span>" . $title[$each] . "</span></h4>";
-            echo "<div class='portfolio-text'>";
-            echo "<p><span>" . $media[$each] . "</span></p>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
+//foreach(array_reverse($photoPath, true) as $each => $value) {
+foreach ($photoPath as $each => $value) {
+    // echo $First[$each]. " " . $Second2[$each];
+    echo "<div class='col-md-4 cards animation-element'>";
+    echo "<div class='portfolio-item' data-toggle='modal' data-target='#" . $photoPath[$each] . "'>";
+    echo "<img class='img-responsive img-main' src='assets/img/portfolio/" . $photoPath[$each] . ".jpg'/>";
+    echo "<h4 class='titles'><span>" . $title[$each] . "</span></h4>";
+    echo "<div class='portfolio-text'>";
+    echo "<p><span>" . $media[$each] . "</span></p>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
 
-            // MODAL
-            echo "<div class='modal fade' id='" . $photoPath[$each] . "' tabindex='-1' role='dialog'>";
-            echo "<div class='modal-dialog' role='document'>";
-            echo "<div class='modal-content'>";
-            echo "<div class='modal-header'>";
-            echo "<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>";
-            echo "</div>";
-            echo "<div class='modal-body'>";
-            echo "<div class='container-fluid'>";
-            echo "<div class='hidden-modal animation-element'>";
-            echo "<h4 class='modal-title' id='myModalLabel'>" . $title[$each] . "</h4>";
-            echo "<span>" . $media[$each] . "</span>";
-            echo "</div>";
-            echo "<br><br><br>";
-            echo "<div class='row'>";
-            echo "<br>";
-            echo "<div class='col-md-12 modal-text'>";
-            echo "<div class='modal-line hidden-modal animation-element'>";
-            echo "<p>" . $mText[$each] . "</p>";
-            echo "</div>";
+    // MODAL
+    echo "<div class='modal fade' id='" . $photoPath[$each] . "' tabindex='-1' role='dialog'>";
+    echo "<div class='modal-dialog' role='document'>";
+    echo "<div class='modal-content'>";
+    echo "<div class='modal-header'>";
+    echo "<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span></button>";
+    echo "</div>";
+    echo "<div class='modal-body'>";
+    echo "<div class='container-fluid'>";
+    echo "<div class='hidden-modal animation-element'>";
+    echo "<h4 class='modal-title' id='myModalLabel'>" . $title[$each] . "</h4>";
+    echo "<span>" . $media[$each] . "</span>";
+    echo "</div>";
+    echo "<br><br><br>";
+    echo "<div class='row'>";
+    echo "<br>";
+    echo "<div class='col-md-12 modal-text'>";
+    echo "<div class='modal-line hidden-modal animation-element'>";
+    echo "<p>" . $mText[$each] . "</p>";
+    echo "</div>";
 
+    $directory = "../assets/img/modals/" . $value . "/";
+    $files = preg_grep('/^([^.])/', scandir($directory));
 
-            $directory = "../assets/img/modals/" . $value . "/";
-            $files = preg_grep('/^([^.])/', scandir($directory));
+    $url = "http://ethanethan.com/assets/img/modals/" . $value . "/";
 
-            $url = "http://ethanethan.com/assets/img/modals/" . $value . "/";
+    $i = 0;
+    $last = count($files);
 
-            $i = 0;
-            $last = count($files);
+    foreach ($files as $files2 => $value2) {
+        //  echo $directory.$value2."<br>";
+        if ($i == $last - 1) {
+            echo "<div class='animation-element'>";
+            echo "<img class='img-responsive img-modal img-shadow' src='" . $url . $value2 . "' />";
+            echo "</div>";
+        } else {
+            echo "<div class='animation-element'>";
+            echo "<img class='img-responsive img-modal img-shadow' src='" . $url . $value2 . "' />";
+            echo "</div>";
+            echo "<hr>";
+        }
+        $i++;
+    }
 
-            foreach ($files as $files2 => $value2) {
-              //  echo $directory.$value2."<br>";
-              if ($i == $last - 1) {
-                echo "<div class='animation-element'>";
-                echo "<img class='img-responsive img-modal img-shadow' src='" . $url.$value2 . "' />";
-                echo "</div>";
-              } else {
-                echo "<div class='animation-element'>";
-                echo "<img class='img-responsive img-modal img-shadow' src='" . $url.$value2 . "' />";
-                echo "</div>";
-                echo "<hr>";
-              }
-              $i++;
-            }
-
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "<div class='modal-footer'>";
-            echo "<button type='button' class='btn btn-default close-btn' data-dismiss='modal'>Close</button>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
-            echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "<div class='modal-footer'>";
+    echo "<button type='button' class='btn btn-default close-btn' data-dismiss='modal'>Close</button>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
+    echo "</div>";
 
 }
 
-        ?>
+?>
 
 
 
