@@ -128,7 +128,7 @@ foreach ($photoPath as $each => $value) {
     $directory = "../assets/img/modals/" . $value . "/";
     $files = preg_grep('/^([^.])/', scandir($directory));
 
-    $url = "http://ethanethan.com/assets/img/modals/" . $value . "/";
+    $url = "assets/img/modals/" . $value . "/";
 
     $i = 0;
     $last = count($files);
